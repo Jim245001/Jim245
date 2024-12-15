@@ -1,0 +1,99 @@
+/* 全局設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+/* 頁首樣式 */
+header {
+    background-color: #ffdb9b;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+button {
+    background-color: #ffdb9b;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.search input {
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+.search button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* 主內容樣式 */
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.panel {
+    background-color: #fff;
+    width: 45%;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filters select {
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.post-item {
+    height: 80px;
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
+.arrows {
+    text-align: center;
+}
+
+.arrows button {
+    background-color: #cce5ff;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+}

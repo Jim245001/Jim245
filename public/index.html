@@ -1,17 +1,84 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雙欄交流平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 頁首 -->
+        <header>
+            <div class="navbar">
+                <span class="logo">XXX(網站名稱)</span>
+                <button @click="goTo('createGroup')">來揪團</button>
+                <button @click="goTo('createPost')">來發文</button>
+                <div class="search">
+                    <input v-model="searchQuery" placeholder="搜尋" />
+                    <button @click="search"><span>🔍</span></button>
+                </div>
+                <button @click="goTo('login')">登入/註冊/個人頁</button>
+            </div>
+        </header>
+
+        <!-- 主要內容 -->
+        <main>
+            <section class="content">
+                <!-- 左側：貼文聊天版 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>貼文聊天版</h2>
+                        <div class="filters">
+                            <button>熱門</button>
+                            <button>最新</button>
+                            <select v-model="postCategory">
+                                <option value="">分類</option>
+                                <option value="生活">生活</option>
+                                <option value="娛樂">娛樂</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="posts">
+                        <div v-for="(post, index) in posts" :key="index" class="post-item">
+                            <div class="post-content">{{ post }}</div>
+                        </div>
+                    </div>
+                    <div class="arrows">
+                        <button @click="prevPage">←</button>
+                        <button @click="nextPage">→</button>
+                    </div>
+                </div>
+
+                <!-- 右側：揪團版 -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2>揪團版</h2>
+                        <div class="filters">
+                            <button>熱門</button>
+                            <button>最新</button>
+                            <select v-model="groupCategory">
+                                <option value="">分類</option>
+                                <option value="運動">運動</option>
+                                <option value="學習">學習</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="posts">
+                        <div v-for="(group, index) in groups" :key="index" class="post-item">
+                            <div class="post-content">{{ group }}</div>
+                        </div>
+                    </div>
+                    <div class="arrows">
+                        <button @click="prevPage">←</button>
+                        <button @click="nextPage">→</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Vue Script -->
+    <script src="app.js"></script>
+</body>
 </html>
